@@ -41,6 +41,9 @@ Welcome to **Hahu-Globes** – an immersive and interactive web application for 
 
 ## 📸 Screenshots
 Here are some screenshots showcasing the immersive UI of the Hahu-Globes platform:
+![Screenshot 2024-09-23 215412](https://github.com/user-attachments/assets/b0e4fbc2-cb86-472c-8f5e-1a43ccf703f4)
+![Screenshot 2024-09-23 215456](https://github.com/user-attachments/assets/e8a18768-cca7-4368-8f5a-75107820c3b8)
+![Screenshot 2024-09-23 215525](https://github.com/user-attachments/assets/13a74c4b-9314-42fa-835e-432b55295654)
 
 
 ## 🤝 Contributing
