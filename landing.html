@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore</title>
+    <style>
+      body {
+        overflow: hidden;
+        margin: 0;
+      }
+
+      #title-container {
+        position: absolute;
+        top: 20px;
+        left: 15%;
+        transform: translateX(-50%);
+        color: white;
+        font-family: 'Lato', sans-serif;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+
+      #logo {
+        width: 80px;
+        height: auto;
+        margin-right: 0.5px;
+      }
+
+      .description {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        z-index: 10;
+        font-family: Arial, sans-serif;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      canvas {
+        display: block;
+      }
+    </style>
+    <meta name="author" content="Jeremey" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="three.js, solar system, 3D, space, planets, astronomy, stars, sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto" />
+    <meta property="og:title" content="Solar System : Explore the 3D Solar System" />
+    <meta property="og:description" content="The Solar System 3D Visualization project is an interactive web-based application that allows users to explore the Solar System in a three-dimensional environment." />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J64SC1QY7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-4J64SC1QY7");
+    </script>
+    <meta name="google-site-verification" content="5QsjbXuM1buDwEtnxWDKN9dE1qgf_dgz646EdwUxSWg" />
+    <link rel="icon" type="image/png" href="./image/solar-system.png" />
+    <script type="text/javascript" src="./min.js/dat.gui.min.js"></script>
+  </head>
+  <body>
+    <div id="title-container">
+      <img id="logo" src="https://i.pinimg.com/564x/39/60/53/3960537dad440633c25fcea3c9380c26.jpg" alt="Logo" />
+      <h1>Explore</h1>
+    </div>
+
+    <div class="description"></div>
+
+    <script src="./js/solarSystem.js" type="module"></script>
+  </body>
+</html>

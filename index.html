@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./image/solar-system.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hahu Globes</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+
+    #title-container {
+      position: absolute;
+      top: 20px;
+      left: 15%;
+      transform: translateX(-50%);
+      color: white;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      z-index: 1;
+    }
+
+    #logo {
+      width: 80px;
+      height: auto;
+      margin-right: 0.5px;
+    }
+
+    #planet-container {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 40px;
+      right: 5%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    .action-button {
+      display: flex;
+      align-items: center;
+      padding: 8px 14px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      font-family: 'Lato', sans-serif;
+      transition: background-color 0.3s;
+    }
+
+    .github-button img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .action-button:hover {
+      background-color: gray;
+    }
+
+    .description {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 500;
+      color: white;
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      text-align: center;
+      z-index: 5;
+      max-width: 400px;
+      line-height: 1.4;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      z-index: 1;
+    }
+
+    .footer .social-icon {
+      width: 16px;
+      height: 16px;
+      margin: 0 4px;
+      padding: 0 3px;
+    }
+
+    .heart-icon {
+      color: red;
+    }
+
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="title-container">
+    <img id="logo" src="https://i.pinimg.com/564x/bd/b9/82/bdb9828858c0ac08d1994876913684e8.jpg" alt="Logo" />
+    <h1>Hahu Globes</h1>
+  </div>
+
+  <div id="planet-container"></div>
+
+  <div class="description">Explore the beauty of the solar system with this 3D visualization. Navigate around the planets and discover their features.</div>
+
+  <div class="button-container">
+    <button class="action-button explore-button">
+      Explore
+    </button>
+    <button class="action-button github-button">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub Icon" />
+      Code
+    </button>
+  </div>
+
+  <div class="footer">
+    Made with <span class="heart-icon">❤️</span> by
+    <a href="https://github.com/Young19ermi/Hahu-Globes" target="_blank"><img class="social-icon" src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" /></a>
+    <a href="https://www.linkedin.com/in/ermias-endale/" target="_blank"><img class="social-icon" src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" /></a>
+    <a href="mailto:ermiasendale19@gmail.com"><img class="social-icon" src="https://img.icons8.com/ios-filled/50/ffffff/gmail.png" alt="Gmail" /></a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 0, 18);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById("planet-container").appendChild(renderer.domElement);
+
+    const geometry = new THREE.SphereGeometry(5, 32, 32);
+    const initialColor = '#00ff83';
+    const material = new THREE.MeshStandardMaterial({ color: initialColor, roughness: 1.25 });
+    const planet = new THREE.Mesh(geometry, material);
+    scene.add(planet);
+
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(0, 10, 10);
+    light.intensity = 1;
+    scene.add(light);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      planet.rotation.y += 0.01;
+
+      const radius = 20;
+      light.position.x = radius * Math.sin(planet.rotation.y);
+      light.position.z = radius * Math.cos(planet.rotation.y);
+      light.position.y = 20;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('mousemove', (event) => {
+      const x = event.clientX / window.innerWidth;
+      const y = event.clientY / window.innerHeight;
+      const color = new THREE.Color(x * 0.5, y * 0.5, 0.8);
+      planet.material.color.set(color);
+    });
+
+    setTimeout(() => {
+      document.querySelector('.explore-button').classList.add('fade-in');
+      document.querySelector('.github-button').classList.add('fade-in');
+    }, 500);
+
+    document.querySelector(".explore-button").addEventListener("click", function() {
+      window.location.href = './landing.html';
+    });
+
+    document.querySelector(".github-button").addEventListener("click", function() {
+      window.open('https://github.com/Young19ermi/Hahu-Globes', '_blank');
+    });
+
+    window.addEventListener('resize', () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+</body>
+</html>
