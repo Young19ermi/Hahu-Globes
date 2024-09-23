@@ -1,4 +1,4 @@
-# Hahu-Globes
+
 # 🌌 Hahu-Globes: Planet Visualizer for Kids
 
 ## 🌟 Project Overview
