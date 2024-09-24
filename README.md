@@ -1,5 +1,5 @@
 
-# 🌌 Hahu-Globes: Planet Visualizer for Kids
+# 🌌 Hahu-Globes: Planet Visualizer for Students
 
 ## 🌟 Project Overview
 Welcome to **Hahu-Globes** – an immersive and interactive web application for exploring the Solar System. This platform is designed specifically for students, offering a fun and engaging way to learn about the planets and their characteristics.
