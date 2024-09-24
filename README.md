@@ -4,6 +4,8 @@
 ## 🌟 Project Overview
 Welcome to **Hahu-Globes** – an immersive and interactive web application for exploring the Solar System. This platform is designed specifically for students, offering a fun and engaging way to learn about the planets and their characteristics.
 
+Checkout: https://hahu-globes.vercel.app/
+
 ## 🛠️ Key Features
 - **🌍 Realistic 3D Visualization**: Experience the Solar System in stunning detail using Three.js.
 - **📚 Interactive Planet Info**: Tap on any planet to display fun facts and information, making learning enjoyable!
